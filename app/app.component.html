@@ -1,26 +1,10 @@
-<!-- 
-<button class="search-icon" mat-icon-button disabled>
-<mat-icon>search</mat-icon>
-</button>
-<input class="search-control" type="text" placeholder="Search" [(ngModel)]="searchText" #searchbar>
-<button mat-button mat-icon-button (click)="searchClose()">
-<mat-icon>close</mat-icon>
-</button>  -->
-
-<!-- <div class="topnav">
-<a class="active" href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-
-<input class="search-control" type="text" placeholder="Search" [(ngModel)]="searchText" #searchbar>
-</div> -->
 <div class="topnav">
   <a class="active" href="#home">Home</a>
   <a href="#about">About</a>
-  <a href="#contact">Contact</a>
+
+  <a (click)="subscribeFlag = !subscribeFlag" href="#subscribe">Subscibe</a>
   <div class="search-container">
-    <!-- <input class="search-control" type="text" placeholder="Search" [(ngModel)]="searchText" #searchbar> -->
-    <mat-icon>search</mat-icon>
+
     <mat-form-field appearance="fill">
       <input
         matInput
@@ -29,17 +13,6 @@
       />
     </mat-form-field>
     <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-    <!-- <mat-form-field appearance="fill">
-<mat-label>Select an option</mat-label>
-<mat-select (click)="applyFilter($event.target.value)"
->
-  <mat-option>None</mat-option>
-  <mat-option value="development">development</mat-option>
-  <mat-option value="support">support</mat-option>
-  <mat-option value="maintainence">maintainence</mat-option>
-</mat-select>
-</mat-form-field> -->
 
     <mat-label>Select an option</mat-label>
     <select (click)="applyFilter($event.target.value)">
@@ -50,17 +23,7 @@
     </select>
   </div>
 </div>
-<!-- <div class="center">
 
-<mat-form-field>
-	<mat-select placeholder="Basic">
-		<mat-select-filter [array]="category" (filteredReturn)="filteredList1 =$event"></mat-select-filter>
-		<mat-option *ngFor="let item of filteredList1" [value]="item">
-			{{item}}
-		</mat-option>
-	</mat-select>
-</mat-form-field>
-</div> -->
 
 <div class="flex-container">
   <mat-card
@@ -92,13 +55,18 @@
       >
         Details
       </button> -->
-    </mat-card-actions >
-    <app-model #modal [currentCard] = "current"  *ngIf="!model_flag"></app-model>
+    </mat-card-actions>
+    <app-model #modal [currentCard]="current" *ngIf="!model_flag"></app-model>
     <mat-card-actions>
-      <button mat-button (click)="openModal(card) " class="btn" >Details</button>
+      <button mat-button (click)="openModal(card)" class="btn">Details</button>
+      <button mat-button class="btn" *ngIf="subscribeFlag">Subscibe</button>
     </mat-card-actions>
 
-    <a href="https://github.com/amitiit11/mat-paginator-with-cards-roqr91" target="blank">url</a>
+    <a
+      href="https://github.com/amitiit11/mat-paginator-with-cards-roqr91"
+      target="blank"
+      >url</a
+    >
     <!-- <mat-card-actions>
 
       <button

@@ -206,6 +206,7 @@ export class AppComponent implements OnInit, OnDestroy {
   selected='';
   model_flag:boolean = true;
   current:Card;
+  subscribeFlag:boolean = false;
   
   @ViewChild(MatPaginator,{static: false}) paginator: MatPaginator;
   @ViewChild(MatSort,{static: false}) sort: MatSort;
