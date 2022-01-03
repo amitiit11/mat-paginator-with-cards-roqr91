@@ -1,0 +1,114 @@
+<!-- 
+<button class="search-icon" mat-icon-button disabled>
+<mat-icon>search</mat-icon>
+</button>
+<input class="search-control" type="text" placeholder="Search" [(ngModel)]="searchText" #searchbar>
+<button mat-button mat-icon-button (click)="searchClose()">
+<mat-icon>close</mat-icon>
+</button>  -->
+
+<!-- <div class="topnav">
+<a class="active" href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+
+<input class="search-control" type="text" placeholder="Search" [(ngModel)]="searchText" #searchbar>
+</div> -->
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <div class="search-container">
+    <!-- <input class="search-control" type="text" placeholder="Search" [(ngModel)]="searchText" #searchbar> -->
+    <mat-icon>search</mat-icon>
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        (keyup)="applyFilter($event.target.value)"
+        placeholder="Filter"
+      />
+    </mat-form-field>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+    <!-- <mat-form-field appearance="fill">
+<mat-label>Select an option</mat-label>
+<mat-select (click)="applyFilter($event.target.value)"
+>
+  <mat-option>None</mat-option>
+  <mat-option value="development">development</mat-option>
+  <mat-option value="support">support</mat-option>
+  <mat-option value="maintainence">maintainence</mat-option>
+</mat-select>
+</mat-form-field> -->
+
+    <mat-label>Select an option</mat-label>
+    <select (click)="applyFilter($event.target.value)">
+      <option value="">none</option>
+      <option value="development">development</option>
+      <option value="support">support</option>
+      <option value="maintainence">maintainence</option>
+    </select>
+  </div>
+</div>
+<!-- <div class="center">
+
+<mat-form-field>
+	<mat-select placeholder="Basic">
+		<mat-select-filter [array]="category" (filteredReturn)="filteredList1 =$event"></mat-select-filter>
+		<mat-option *ngFor="let item of filteredList1" [value]="item">
+			{{item}}
+		</mat-option>
+	</mat-select>
+</mat-form-field>
+</div> -->
+
+<div class="flex-container">
+  <mat-card
+    class="example-card flex-box"
+    *ngFor="let card of obs | async | filter: searchText"
+  >
+    <mat-card-header *ngIf="!card.flag">
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ card.title }}</mat-card-title>
+      <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{ card.image }}" alt="Photo of a Shiba Inu" />
+
+    <mat-card-content>
+      <p>{{ card.text }}</p>
+      <p><b>Technology:</b>{{ card.technology }}</p>
+    </mat-card-content>
+    <mat-card-content *ngIf="card.flag">
+      <p><b>POC:</b>{{ card.poc }}</p>
+      <p><b>Technology:</b>{{ card.technology }}</p>
+      <p><b>Domain:</b>{{ card.domain }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <button
+        mat-button
+        class="btn"
+        (click)="card.flag = true"
+        *ngIf="!card.flag"
+      >
+        Details
+      </button> -->
+    </mat-card-actions>
+    <app-model #modal [currentCard] = "card"></app-model>
+    <mat-card-actions>
+      <button mat-button (click)="openModal()" class="btn">Details</button></mat-card-actions>
+    
+    <!-- <mat-card-actions>
+
+      <button
+        mat-button
+        class="btn"
+        (click)="card.flag = false"
+        *ngIf="card.flag"
+      >
+        Back
+      </button>
+    </mat-card-actions> -->
+  </mat-card>
+</div>
+
+<mat-paginator [pageSizeOptions]="[2, 4, 6, 8]"> </mat-paginator>
