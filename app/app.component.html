@@ -92,10 +92,12 @@
       >
         Details
       </button> -->
-    </mat-card-actions>
-    <app-model #modal [currentCard] = "card"></app-model>
+    </mat-card-actions >
+    <app-model #modal [currentCard] = "current"  *ngIf="!model_flag"></app-model>
     <mat-card-actions>
-      <button mat-button (click)="openModal()" class="btn">Details</button></mat-card-actions>
+      <button mat-button (click)="openModal(card) " class="btn" >Details</button>
+    </mat-card-actions>
+
     <a href="https://github.com/amitiit11/mat-paginator-with-cards-roqr91" target="blank">url</a>
     <!-- <mat-card-actions>
 

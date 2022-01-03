@@ -204,6 +204,8 @@ export class AppComponent implements OnInit, OnDestroy {
   searchText='';
   toggleSearch: boolean = false;
   selected='';
+  model_flag:boolean = true;
+  current:Card;
   
   @ViewChild(MatPaginator,{static: false}) paginator: MatPaginator;
   @ViewChild(MatSort,{static: false}) sort: MatSort;
@@ -211,7 +213,7 @@ export class AppComponent implements OnInit, OnDestroy {
   @ViewChild('modal', {static: false}) modal: ModelComponent;
 
  
-  obs: Observable<any>;
+  obs: Observable<Card[]>;
   dataSource: MatTableDataSource<Card> = new MatTableDataSource<Card>(DATA);
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
@@ -249,7 +251,9 @@ export class AppComponent implements OnInit, OnDestroy {
     this.searchText = '';
     this.toggleSearch = false;
   }
-  openModal() {
+  openModal(card:Card) {
+    this.current=card;
+    this.model_flag = false;
     this.modal.open();
   }
 }
