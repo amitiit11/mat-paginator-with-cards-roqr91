@@ -1,11 +1,11 @@
 <div class="topnav">
-  <a class="active" href="#home">Home</a>
+  <a  href="#home">Home</a>
   <a href="#about">About</a>
 
   <a (click)="subscribeFlag = !subscribeFlag" href="#subscribe">Subscibe</a>
   <div class="search-container">
 
-    <mat-form-field appearance="fill" style="float:left">
+    <mat-form-field appearance="fill" style="float:left; background:white">
       <input
         matInput
         (keyup)="applyFilter($event.target.value)"
@@ -14,7 +14,7 @@
     </mat-form-field>
     <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
     <div class="select-wrapper" style="float:right">
-    <!-- <mat-label>Select an option</mat-label> -->
+  
     <select (click)="applyFilter($event.target.value)">
       <option value="">Select Technology</option>
       <option value="development">development</option>
@@ -25,7 +25,7 @@
   </div>
 </div>
 
-
+<!-- 
 <div class="flex-container">
   <mat-card
     class="example-card flex-box"
@@ -39,7 +39,7 @@
     <img mat-card-image src="{{ card.image }}" alt="Photo of a Shiba Inu" />
 
     <mat-card-content>
-      <!-- <p>{{ card.text }}</p> -->
+
       <p><b>Technology: </b>{{ card.technology }}</p>
       <p><b>Domain: </b>{{ card.domain }}</p>
       <p>Click on details for more details.</p>
@@ -49,16 +49,7 @@
       <p><b>Technology:</b>{{ card.technology }}</p>
       <p><b>Domain:</b>{{ card.domain }}</p>
     </mat-card-content>
-    <mat-card-actions>
-      <!-- <button
-        mat-button
-        class="btn"
-        (click)="card.flag = true"
-        *ngIf="!card.flag"
-      >
-        Details
-      </button> -->
-    </mat-card-actions>
+
     <app-model #modal [currentCard]="current" *ngIf="!model_flag"></app-model>
     <mat-card-actions>
       <button mat-button (click)="openModal(card)" class="btn" style="float:left">Details</button>
@@ -66,22 +57,53 @@
     </mat-card-actions>
 
     <a
-      href="https://github.com/amitiit11/mat-paginator-with-cards-roqr91"
+      href="https://infyme.infosysapps.com/en/"
       target="blank"
       >url</a
     >
-    <!-- <mat-card-actions>
 
-      <button
-        mat-button
-        class="btn"
-        (click)="card.flag = false"
-        *ngIf="card.flag"
-      >
-        Back
-      </button>
-    </mat-card-actions> -->
   </mat-card>
-</div>
+</div> -->
+<!-- <div class="row ">
+  <div class="col-md-6 col-lg-5 col-xl-4 "> -->
+    <div class="flex-container">
+      <mat-card class="DSA_wb_card-widget exxample-card flex-box example-card" *ngFor="let card of obs | async | filter: searchText">
+          
+          <div class="DSA_matCard-imageCtr min-marT24 ">
+          <img alt="card media image" src="{{card.image}}" class="mat-card-image img-corner-rounded" />    
+          </div>  
+          <mat-card-header>
+              <mat-card-title class="DSA_wb_flex clearfix">
+                  <div class="DSA_wb_flex80">
+                      <h2 class="DSA_wb_h2Header DSA_wb_text-1line">{{card.title}}</h2> 
+                  </div>
+                  <!-- <div class="DSA_wb_flex20">
+                      <span class="DSA_wb_chipStyle DSA_closedchip float-right">Submitted</span>
+                  </div> -->
+              </mat-card-title>                                
+              <mat-card-subtitle class="DSA_wb_caption web-GreyLight DSA_wb_text-1line">{{card.subtitle}}</mat-card-subtitle>
+          </mat-card-header>                      
+          <mat-card-content>                                
+              <p class="DSA_wb_mainBodyTxt2 web-GreyLight DSA_wb_text-3line">The card container is the only required element in a card. All other elements shown here are optional.</p>
+          </mat-card-content>
+          <hr/>
+          <mat-card-actions>
+            <app-model #modal [currentCard]="current" *ngIf="!model_flag"></app-model>
+              <button mat-button class="DSA_wb_text-btn" (click)="openModal(card)">Details</button>
+              <button mat-button class="DSA_wb_text-btn" *ngIf="subscribeFlag">Subscribe</button>
+              <!-- <ul class="float-right DSA_action-ul">
+                  <li><a href="javascript:void(0);" aria-label="star icon"><i aria-hidden="true" class="icon x-24 star-icon"> </i></a></li>
+                  <li><a href="javascript:void(0);" aria-label="star icon"><i aria-hidden="true" class="icon x-24 star-icon"> </i></a></li>
+                  <li><a href="javascript:void(0);" aria-label="star icon"><i aria-hidden="true" class="icon x-24 star-icon"> </i></a></li>
+                  <li><a href="javascript:void(0);" aria-label="menu icon"><i aria-hidden="true" class="icon x-24 v-menu-icon"> </i></a></li>                         
+              </ul>                                 -->
+              <button mat-button class="DSA_wb_text-btn" style="float:right">Google</button>
+          </mat-card-actions>
+        
+      </mat-card>
+    </div>
+    <!-- </div>
+  </div>
+   -->
 
-<mat-paginator [pageSizeOptions]="[2, 4, 6, 8]"> </mat-paginator>
+<mat-paginator [pageSizeOptions]="[3,6,9]"> </mat-paginator>

@@ -5,7 +5,7 @@ import { Card } from '../app.component';
   selector: 'app-model',
   template: `
     <div #myModal class="container">
-    <div class="content">
+    <div class="content popup">
       
       <p>Title:{{currentCard.title}}</p>
       <p>Subtitle:{{currentCard.subtitle}}</p>
