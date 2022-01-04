@@ -5,22 +5,23 @@
   <a (click)="subscribeFlag = !subscribeFlag" href="#subscribe">Subscibe</a>
   <div class="search-container">
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" style="float:left">
       <input
         matInput
         (keyup)="applyFilter($event.target.value)"
-        placeholder="Filter"
+        placeholder="Filter Cards"
       />
     </mat-form-field>
     <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-    <mat-label>Select an option</mat-label>
+    <div class="select-wrapper" style="float:right">
+    <!-- <mat-label>Select an option</mat-label> -->
     <select (click)="applyFilter($event.target.value)">
-      <option value="">none</option>
+      <option value="">Select Technology</option>
       <option value="development">development</option>
       <option value="support">support</option>
       <option value="maintainence">maintainence</option>
     </select>
+    </div>
   </div>
 </div>
 
@@ -38,8 +39,10 @@
     <img mat-card-image src="{{ card.image }}" alt="Photo of a Shiba Inu" />
 
     <mat-card-content>
-      <p>{{ card.text }}</p>
-      <p><b>Technology:</b>{{ card.technology }}</p>
+      <!-- <p>{{ card.text }}</p> -->
+      <p><b>Technology: </b>{{ card.technology }}</p>
+      <p><b>Domain: </b>{{ card.domain }}</p>
+      <p>Click on details for more details.</p>
     </mat-card-content>
     <mat-card-content *ngIf="card.flag">
       <p><b>POC:</b>{{ card.poc }}</p>
@@ -58,8 +61,8 @@
     </mat-card-actions>
     <app-model #modal [currentCard]="current" *ngIf="!model_flag"></app-model>
     <mat-card-actions>
-      <button mat-button (click)="openModal(card)" class="btn">Details</button>
-      <button mat-button class="btn" *ngIf="subscribeFlag">Subscibe</button>
+      <button mat-button (click)="openModal(card)" class="btn" style="float:left">Details</button>
+      <button mat-button class="btn" *ngIf="subscribeFlag"style="float:right">Subscibe</button>
     </mat-card-actions>
 
     <a
