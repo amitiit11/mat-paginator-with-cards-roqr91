@@ -25,47 +25,6 @@
   </div>
 </div>
 
-<!-- 
-<div class="flex-container">
-  <mat-card
-    class="example-card flex-box"
-    *ngFor="let card of obs | async | filter: searchText"
-  >
-    <mat-card-header *ngIf="!card.flag">
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{ card.title }}</mat-card-title>
-      <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="{{ card.image }}" alt="Photo of a Shiba Inu" />
-
-    <mat-card-content>
-
-      <p><b>Technology: </b>{{ card.technology }}</p>
-      <p><b>Domain: </b>{{ card.domain }}</p>
-      <p>Click on details for more details.</p>
-    </mat-card-content>
-    <mat-card-content *ngIf="card.flag">
-      <p><b>POC:</b>{{ card.poc }}</p>
-      <p><b>Technology:</b>{{ card.technology }}</p>
-      <p><b>Domain:</b>{{ card.domain }}</p>
-    </mat-card-content>
-
-    <app-model #modal [currentCard]="current" *ngIf="!model_flag"></app-model>
-    <mat-card-actions>
-      <button mat-button (click)="openModal(card)" class="btn" style="float:left">Details</button>
-      <button mat-button class="btn" *ngIf="subscribeFlag"style="float:right">Subscibe</button>
-    </mat-card-actions>
-
-    <a
-      href="https://infyme.infosysapps.com/en/"
-      target="blank"
-      >url</a
-    >
-
-  </mat-card>
-</div> -->
-<!-- <div class="row ">
-  <div class="col-md-6 col-lg-5 col-xl-4 "> -->
     <div class="flex-container">
       <mat-card class="DSA_wb_card-widget exxample-card flex-box example-card" *ngFor="let card of obs | async | filter: searchText">
           
@@ -77,9 +36,7 @@
                   <div class="DSA_wb_flex80">
                       <h2 class="DSA_wb_h2Header DSA_wb_text-1line">{{card.title}}</h2> 
                   </div>
-                  <!-- <div class="DSA_wb_flex20">
-                      <span class="DSA_wb_chipStyle DSA_closedchip float-right">Submitted</span>
-                  </div> -->
+
               </mat-card-title>                                
               <mat-card-subtitle class="DSA_wb_caption web-GreyLight DSA_wb_text-1line">{{card.subtitle}}</mat-card-subtitle>
           </mat-card-header>                      
@@ -91,19 +48,12 @@
             <app-model #modal [currentCard]="current" *ngIf="!model_flag"></app-model>
               <button mat-button class="DSA_wb_text-btn" (click)="openModal(card)">Details</button>
               <button mat-button class="DSA_wb_text-btn" *ngIf="subscribeFlag">Subscribe</button>
-              <!-- <ul class="float-right DSA_action-ul">
-                  <li><a href="javascript:void(0);" aria-label="star icon"><i aria-hidden="true" class="icon x-24 star-icon"> </i></a></li>
-                  <li><a href="javascript:void(0);" aria-label="star icon"><i aria-hidden="true" class="icon x-24 star-icon"> </i></a></li>
-                  <li><a href="javascript:void(0);" aria-label="star icon"><i aria-hidden="true" class="icon x-24 star-icon"> </i></a></li>
-                  <li><a href="javascript:void(0);" aria-label="menu icon"><i aria-hidden="true" class="icon x-24 v-menu-icon"> </i></a></li>                         
-              </ul>                                 -->
+              
               <button mat-button class="DSA_wb_text-btn" style="float:right">Google</button>
           </mat-card-actions>
         
       </mat-card>
     </div>
-    <!-- </div>
-  </div>
-   -->
+
 
 <mat-paginator [pageSizeOptions]="[3,6,9]"> </mat-paginator>
